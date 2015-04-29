@@ -1,0 +1,7 @@
+# don't trace
+*.~
+target
+.settings
+/.idea
+/unstrack
+/node_modules
