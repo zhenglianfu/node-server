@@ -15,7 +15,7 @@ var config = function(){
 }();
 console.log(config);
 config = config || {
-    root  : 'E:/git/node-server/webapp',
+    root  : './webapp',
     index : 'index.html',
     log   : {
         dir      : '/log',
@@ -31,8 +31,9 @@ var code_message = {
     500 : '',
     503 : ''
 }
-function page404(){
 
+function page404(){
+    return "<html><head><title>404</title></head><body>Page is not found</body></html>";
 }
 function page500(){
 
@@ -43,8 +44,14 @@ http.createServer(function(req, res){
     res.writeHead(200, {
         'Content-Type' : 'text/html'
     });
-    res.write('welcome');
-    res.end();
+    fs.readFile(config.root + '/' + config.index, function(err, data){
+        if (err) {
+            res.write(page404());
+        } else {
+            res.write(data);
+        }
+        res.end();
+    });
     return res;
 }).listen(1337, '127.0.0.1');
 console.log('server is started');
