@@ -3,7 +3,9 @@
  */
 module.exports = function(){
     return {
-        root  : 'E:/git/node-server/webapp',
+        port  : 1337,
+        host  : 'localhost',
+        root  : './webapp',
         index : 'index.html',
         log   : {
             dir      : './log',
