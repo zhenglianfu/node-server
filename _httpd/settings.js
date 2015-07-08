@@ -3,7 +3,7 @@
  *
  */
 
-// node server ÅäÖÃÎÄ¼ş
+// node server
 module.exports = function(){
     // server config
     var server = {

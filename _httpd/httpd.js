@@ -11,11 +11,11 @@ module.exports = function(){
     var http = require('http'),
         path = require('path'),
         fs   = require('fs'),
-        _    = require('underscore'),
+        util = require('./util.js'),
         httpd = function(){
             return httpd.createServer();
         };
-    _.extend(httpd, {
+    util.extend(httpd, {
         createServer : function(port, host){
             port = port || '1337';
             host = host || 'localhost';
